@@ -1,11 +1,12 @@
 from datetime import datetime
+import time
 yearin = ""
 monthin = ""
 dayin = ""
 hourin = ""
 minutein = ""
 secondin = ""
-
+datetime = ""
 expectedinput = "%Y-%m-%d %H:%M:%S"
 while True:
     yearin = input("Enter a year:\n")
@@ -39,8 +40,7 @@ while True:
             break
     else:
         print("Month "+monthin+" is invalid")
-
-monthswith30days = [4, 6, 9, 11]
+        monthswith30days = [4, 6, 9, 11]
 while True:
     dayin = input("Enter a day:\n")
     try:
@@ -109,8 +109,8 @@ while True:
             break
     else:
         print("Second "+secondin+" is invalid")
-
-
 while True:
     print(yearin + "-" + monthin + "-" + dayin + " " + hourin + ":" + minutein + ":" + secondin)
+    dt = datetime.datetime(yearin, monthin, dayin, hourin, minutein, secondin)
+    time.mktime(dt.timetuple())
     break
